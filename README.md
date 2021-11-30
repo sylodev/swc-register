@@ -1,6 +1,6 @@
 # @sylo-digital/swc-register
 
-This is a require hook and jest transformer to transform `.ts` files with SWC that handles falling back to and caching the result of `tsc` for files with decorators. SWC has some funky issues when it comes to decorators, making it incompatible with NestJS projects and other libraries that use decorators. This transformer will use SWC for files without decorators as normal, but for files with decorators it will use `tsc` to compile the file and cache the result on disk by the files hash.
+This is a require hook and jest transformer to transform `.ts` files with SWC that handles falling back to and caching the result of `tsc` for files with decorators. SWC has some [funky issues](https://github.com/swc-project/swc/issues/2117) when it comes to decorators, making it incompatible with NestJS projects and other libraries that use decorators. This transformer will use SWC for files without decorators as normal, but for files with decorators it will use `tsc` to compile the file and cache the result on disk by the files hash.
 
 Other attempts like [@swc/register](https://www.npmjs.com/package/@swc/register) and [@swc-node/register](https://www.npmjs.com/package/@swc-node/register) do not play well with decorators, and do not have simple jest support with decorators.
 
